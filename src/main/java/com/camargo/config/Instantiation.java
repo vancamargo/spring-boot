@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.camargo.domaim.Post;
 import com.camargo.domaim.User;
+import com.camargo.dto.AuthorDTO;
 import com.camargo.repository.PostRepository;
 import com.camargo.repository.UserRepository;
 
@@ -32,10 +33,12 @@ public class Instantiation implements CommandLineRunner {
 		User alex = new User(null, "Alex Green", "alex@gmail.com"); 
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
 		
-		Post post1 = new Post(null, stf.parse("21/03/2018"), "partiu viagem", "vou viajar", alex);
-		Post post2 = new Post(null, stf.parse("23/03/2018"), "bom dia", "acordei", alex);
-		
 		userRepository.saveAll(Arrays.asList(maria, alex, bob));
+		
+		Post post1 = new Post(null, stf.parse("21/03/2018"), "partiu viagem", "vou viajar",new AuthorDTO(alex));
+		Post post2 = new Post(null, stf.parse("23/03/2018"), "bom dia", "acordei",new AuthorDTO(alex));
+		
+	
 		PostRepository.saveAll(Arrays.asList(post1, post2));
 		
 	}
