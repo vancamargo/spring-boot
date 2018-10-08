@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.camargo.domaim.Post;
 import com.camargo.domaim.User;
 import com.camargo.dto.UserDTO;
 import com.camargo.services.UserService;
 
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/posts")
 
 
 public class UserResource {
@@ -60,8 +61,16 @@ public class UserResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 
+	}
 	
+	@RequestMapping(value="/{id}/posts", method = RequestMethod.GET)
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getPosts());
+	}
 
-}
+
+
+
 	
 }
