@@ -1,12 +1,15 @@
 package com.camargo.domaim;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.camargo.dto.AuthorDTO;
+import com.camargo.dto.CommentDTO;
 
 @Document
 
@@ -19,7 +22,12 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	
+	private List<CommentDTO> comments = new ArrayList<>();
+	
+	
 	public Post() {
+		
 	}
  	public Post(String id, Date date, String title, String body, AuthorDTO author) {
 		super();
@@ -28,6 +36,13 @@ public class Post implements Serializable {
 		this.title = title;
 		this.body = body;
 		this.author = author;
+	}
+ 	
+ 	public List<CommentDTO> getComments() {
+		return comments;
+	}
+	public void setComments(List<CommentDTO> comments) {
+		this.comments = comments;
 	}
  	public String getId() {
 		return id;
@@ -74,7 +89,7 @@ public class Post implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Post other = (Post) obj;
+		Post other = (Post) obj; 
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -82,4 +97,5 @@ public class Post implements Serializable {
 			return false;
 		return true;
 	}
+	
 }
