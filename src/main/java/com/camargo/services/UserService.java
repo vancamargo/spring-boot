@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.camargo.domaim.User;
 import com.camargo.dto.UserDTO;
-import com.camargo.repository.UserRepository;
+import com.camargo.repository.userRepository;
 import com.camargo.services.exception.ObjectNotFoundException;
 
 
@@ -17,7 +17,7 @@ import com.camargo.services.exception.ObjectNotFoundException;
 public class UserService {
 	
 	@Autowired
-	private UserRepository repo;
+	private userRepository repo;
 	
 public List<User> findAll(){
 	return repo.findAll();

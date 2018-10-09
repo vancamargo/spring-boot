@@ -19,7 +19,7 @@ import com.camargo.dto.UserDTO;
 import com.camargo.services.UserService;
 
 @RestController
-@RequestMapping(value="/posts")
+@RequestMapping(value="/users")
 
 
 public class UserResource {

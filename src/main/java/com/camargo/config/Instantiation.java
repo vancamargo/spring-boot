@@ -13,12 +13,12 @@ import com.camargo.domaim.User;
 import com.camargo.dto.AuthorDTO;
 import com.camargo.dto.CommentDTO;
 import com.camargo.repository.PostRepository;
-import com.camargo.repository.UserRepository;
+import com.camargo.repository.userRepository;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {
 	@Autowired
-	private UserRepository userRepository;
+	private userRepository userRepository;
 	
 	@Autowired
 	private PostRepository PostRepository;
