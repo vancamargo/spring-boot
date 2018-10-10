@@ -27,10 +27,11 @@ public Post findById(String id) {
 	} 
 
 
-public List<Post> findByTitle(String text){
-	return repo.findByTitleContaining(text);
-}
 
+
+public List<Post> findByTitle(String text){
+	return repo.searchTitle(text);
+}
 
 
 }
